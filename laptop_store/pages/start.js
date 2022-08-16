@@ -1,4 +1,5 @@
 import Head from "next/head"
+import "bulma/css/bulma.css"
 
 export default function Start() {
     return (
