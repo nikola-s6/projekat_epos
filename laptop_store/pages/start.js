@@ -9,6 +9,7 @@ export default function Start() {
             </Head>
             <div>
                 <h1>naslov</h1>
+                <p>lorem ipsum dolor</p>
             </div>
         </div>
     )
