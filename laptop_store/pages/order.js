@@ -1,8 +1,53 @@
 import Head from "next/head"
 import styles from "../styles/Order.module.css"
+import orderContract from "../blockchain/contractExport"
+import { useEffect, useState } from "react"
+import Web3 from 'web3'
+
 
 
 const Order = () => {
+    const [web3, setWeb3] = useState(null)
+    const [contract, setContract] = useState(null)
+    const [remaining, setRemaining] = useState("")
+
+
+    useEffect(() => {
+        if (contract) setRemainingHandler()
+    });
+
+    const setRemainingHandler = async () => {
+        const _inventory = await contract.methods.getReserve().call()
+        setRemaining(_inventory)
+    }
+
+    const connectWalletHandler = async () => {
+        if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+            try {
+                if (contract == null || web3 == null) {
+                    await window.ethereum.request({ method: "eth_requestAccounts" })
+                    const _web3 = new Web3(window.ethereum)
+                    setWeb3(_web3)
+                    const _contract = orderContract(_web3)
+                    setContract(_contract)
+                    alert("Wallet Succesfully Connected")
+                } else {
+                    alert("Wallet Already Connected")
+                }
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+    }
+
+    const orderHandler = async () => {
+        if (contract == null || web3 == null) {
+            alert("Cannot order until you connect your wallet")
+        }
+        setRemaining("nikfadfadsas")
+        // setRemainingHandler()
+        // console.log({ remaining })
+    }
     return (
         <div>
             <Head>
@@ -30,9 +75,9 @@ const Order = () => {
                                 <input type='text' placeholder='Enter delivery address:' className="field address"></input>
                             </form>
                             <section className="section">
-                                <button className="button connect">Connect Wallet</button>
-                                <button className="button order">Order</button>
-                                <p className="state">Only 78 left</p>
+                                <button className="button connect" onClick={connectWalletHandler}>Connect Wallet</button>
+                                <button className="button order" onClick={orderHandler}>Order</button>
+                                <p className="state">Only {remaining} left</p>
                             </section>
                         </div>
                     </div>

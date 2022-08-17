@@ -10,7 +10,10 @@
     "compile": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/Contract.sol --output-dir blockchain/build"
   },
   "dependencies": {
+    "@thirdweb-dev/react": "^2.6.5",
+    "@thirdweb-dev/sdk": "^2.3.36",
     "bulma": "^0.9.4",
+    "ethers": "^5.6.9",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
