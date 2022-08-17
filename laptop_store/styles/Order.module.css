@@ -1,0 +1,13 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(/laptop_store/fonts/Open_Sans/OpenSans-Regular.ttf);
+  }
+  @font-face {
+    font-family: OpenSansBold;
+    src: url(/laptop_store/fonts/Open_Sans/OpenSans-Bold.ttf);
+  }
+.body{
+    margin: 0;
+    padding: 0;
+    font-family: OpenSans;
+}
