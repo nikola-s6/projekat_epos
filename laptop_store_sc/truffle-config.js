@@ -1,3 +1,7 @@
+require('dotenv').config()
+const JDWalletProvider = require("@truffle/hdwallet-provider")
+
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -59,6 +63,18 @@ module.exports = {
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
+    rinkeby: {
+      provider: () => new JDWalletProvider({
+        privateKeys: [process.env.PRIVATE_KEY_1],
+        providerOrUrl: process.env.INFURA_API_KEY,
+        numberOfAddresses: 1
+      }),
+      network_id: 4,
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
     // ropsten: {
     //   provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/YOUR-PROJECT-ID`),
     //   network_id: 3,       // Ropsten's id
