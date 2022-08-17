@@ -7,11 +7,11 @@ export default function Start() {
         <div>
             <Head>
                 <title>Razer</title>
-                <link rel="icon" href="/razer_logo.svg" / >
+                <link rel="icon" href="/razer_logo.svg" />
             </Head>
             <div>
-               
-                
+
+
             </div>
         </div>
     )
