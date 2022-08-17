@@ -1,0 +1,58 @@
+
+.body{
+    position: absolute;
+    background-color: black;
+    color: white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+    height: 100vh;
+}
+
+.section h1{
+    text-align: center;
+    line-height: 100vh;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;	
+}
+
+
+.section h1 {
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(150px);
+
+}
+
+.fadeMove {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.body a {
+    padding: 20px 20px;
+    display: flex;
+    color: #008000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 3em;
+    overflow: hidden;
+    
+}
+
+.body a:hover {
+    color: #111;
+    background: #39ff14;
+    box-shadow: 0 0 50px #39ff14;
+}
