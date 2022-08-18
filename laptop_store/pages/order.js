@@ -3,7 +3,7 @@ import styles from "../styles/Order.module.css"
 import orderContract from "../blockchain/contractExport"
 import { useEffect, useState } from "react"
 import Web3 from 'web3'
-import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 
 
 const Order = () => {
@@ -11,15 +11,42 @@ const Order = () => {
     const [contract, setContract] = useState(null)
     const [remaining, setRemaining] = useState("")
 
+    const [nameErrorMessage, setNameErrorMessage] = useState("")
+    const [lastNameErrorMessage, setLastNameErrorMessage] = useState("")
+    const [emailErrorMessage, setEmailErrorMessage] = useState("")
+    const [addressErrorMessage, setAddressErrorMessage] = useState("")
+
+    const [name, setName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [address, setAddress] = useState("")
+
+    const updateName = event => {
+        setName(event.target.value)
+    }
+    const updateLastName = event => {
+        setLastName(event.target.value)
+    }
+    const updateEmail = event => {
+        setEmail(event.target.value)
+    }
+    const updateAddress = event => {
+        setAddress(event.target.value)
+    }
 
     useEffect(() => {
         if (contract) setRemainingHandler()
+        // if (contract) {
+        //     submitForm()
+        //     setErrorMessages()
+        // }
     });
 
     const setRemainingHandler = async () => {
         const _inventory = await contract.methods.getReserve().call()
         setRemaining(_inventory)
     }
+
 
     const connectWalletHandler = async () => {
         if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
@@ -40,62 +67,109 @@ const Order = () => {
         }
     }
 
+
     const orderHandler = async () => {
         if (contract == null || web3 == null) {
             alert("Cannot order until you connect your wallet")
+            return
         }
-        setRemaining("nikfadfadsas")
-        // setRemainingHandler()
-        // console.log({ remaining })
+        if (!valid()) {
+            setErrorMessages()
+            return
+        }
+        setErrorMessages()
+        alert("before sends")
+        sendEmails()
+        alert("ordered")
+
     }
 
-    
-    const { register, handleSubmit, setErrors } = useForm();
+    function sendEmails() {
+        var templateParams = {
+            name: name,
+            lastName: lastName,
+            email: email,
+            address: address
+        }
+
+        emailjs.send('service_01wit8g', 'template_0make8o', templateParams, process.env.NEXT_PUBLIC_KEY)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text)
+            }, function (error) {
+                console.log('FAILED...', error)
+            })
+
+        emailjs.send('service_01wit8g', 'template_atqrcad', templateParams, process.env.NEXT_PUBLIC_KEY)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text)
+            }, function (error) {
+                console.log('FAILED...', error)
+            })
+    }
 
     const errors = {
         "name": [],
         "lastName": [],
         "email": [],
-        "addres": []
+        "address": []
     }
 
-    const onSubmit = (data) => {
-        console.log(errors);
-        
-        validateName(data.name);
-        validateLastName(data.lastName);
-        validateEmail(data.email);
-        validateAddress(data.address);
-    
-        console.log(errors);
-        
-    };
+    function submitForm() {
+        validateName(name)
+        validateLastName(lastName)
+        validateEmail(email)
+        validateAddress(address)
+    }
 
-    function validateName (name) {
+    function validateName(name) {
 
-        if(name.length<4)
+        if (name.length < 4) {
             errors["name"] = ["Name can not be shorter than 5 characters "]
-            
-        
+        } else {
+            errors["name"] = []
+        }
     }
 
-    function validateLastName(lastName){
+    function validateLastName(lastName) {
 
-         if(lastName.length<4)
-             errors["lastName"] = ["Last name can not be shorter than 5 characters "]
-       
+        if (lastName.length < 4) {
+            errors["lastName"] = ["Last name can not be shorter than 5 characters "]
+        } else {
+            errors["lastName"] = []
+        }
     }
 
-    function validateEmail(email){
-        if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
+    function validateEmail(email) {
+        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
             errors["email"] = ["Incorrect email"]
+        } else {
+            errors["email"] = []
+        }
     }
 
-    function validateAddress(address){
+    function validateAddress(address) {
 
-        if(address.length<4)
+        if (address.length < 4) {
             errors["address"] = ["Address can not be shorter than 5 characters "]
-         
+        } else {
+            errors["address"] = []
+        }
+    }
+
+    function valid() {
+        submitForm()
+        var bool = true
+        Object.values(errors).forEach(element => {
+            if (element.length > 0) bool = false
+        })
+        return bool
+    }
+
+    function setErrorMessages() {
+        if (errors["name"][0] != "undefined") setNameErrorMessage(errors["name"][0])
+        if (errors["lastName"][0] != "undefined") setLastNameErrorMessage(errors["lastName"][0])
+        if (errors["email"][0] != "undefined") setEmailErrorMessage(errors["email"][0])
+        if (errors["address"][0] != "undefined") setAddressErrorMessage(errors["address"][0])
     }
 
     return (
@@ -110,7 +184,7 @@ const Order = () => {
                         <img src="laptop_sa_senkom.svg" className="picture"></img>
                         <div className="texts">
                             <p className="mainText">Razer Laptop 16'</p>
-                            <p className="priceText">Price: 0.1 eth</p>
+                            <p className="priceText">Price: 0.3 eth</p>
                         </div>
                     </div>
 
@@ -118,12 +192,16 @@ const Order = () => {
                     <div className="right">
                         <div className="container">
                             <img src="razer_logo.svg" className="logo"></img>
-                            <form className="form" onSubmit={handleSubmit(onSubmit)}>
-                                <input {...register('name')} id = "name" type='text' placeholder='Enter your name:' className="field name"></input>
-                                <input {...register('lastName')} id = "lastName" type='text' placeholder='Enter your last name:' className="field lastName"></input>
-                                <input {...register('email')} id = "email" type='text' placeholder='Enter your e-mail:' className="field email"></input>
-                                <input {...register('address')} id = "address" type='text' placeholder='Enter delivery address:' className="field address"></input>
-                                <input type = "submit"></input>
+                            <form className="form">
+                                <input id="name" type='text' placeholder='Enter your name:' className="field name" onChange={updateName}></input>
+                                <span className="errMessage">{nameErrorMessage}</span>
+                                <input id="lastName" type='text' placeholder='Enter your last name:' className="field lastName" onChange={updateLastName}></input>
+                                <span className="errMessage">{lastNameErrorMessage}</span>
+                                <input id="email" type='text' placeholder='Enter your e-mail:' className="field email" onChange={updateEmail}></input>
+                                <span className="errMessage">{emailErrorMessage}</span>
+                                <input id="address" type='text' placeholder='Enter delivery address:' className="field address" onChange={updateAddress}></input>
+                                <span className="errMessage">{addressErrorMessage}</span>
+                                {/* <input type="submit"></input> */}
                             </form>
                             <section className="section">
                                 <button className="button connect" onClick={connectWalletHandler}>Connect Wallet</button>
