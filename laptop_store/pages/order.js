@@ -66,9 +66,9 @@ const Order = () => {
         validateLastName(data.lastName);
         validateEmail(data.email);
         validateAddress(data.address);
-        
-
+    
         console.log(errors);
+        
     };
 
     function validateName (name) {
