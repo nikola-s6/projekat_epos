@@ -102,8 +102,19 @@
 .iframe{
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .section2 {
     height: 700px;
+    position: relative;
+}
+
+.gamerText {
+    position: absolute;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    top: 100px;
+    left: 200px;
+    font-size: 1.4rem;
+    color: white;
 }

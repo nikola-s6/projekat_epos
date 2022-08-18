@@ -56,7 +56,9 @@ const Start = () => {
             </div>
 
             <div className={styles.section2}>
-
+                <img src= "laptop.jpg" className={styles.iframe}></img>
+                <p className= {styles.gamerText}></p>
+                
             </div>
         </div>
     )
