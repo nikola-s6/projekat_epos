@@ -36,10 +36,6 @@ const Order = () => {
 
     useEffect(() => {
         if (contract) setRemainingHandler()
-        // if (contract) {
-        //     submitForm()
-        //     setErrorMessages()
-        // }
     });
 
     const setRemainingHandler = async () => {
@@ -51,16 +47,12 @@ const Order = () => {
     const connectWalletHandler = async () => {
         if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
             try {
-                if (contract == null || web3 == null) {
-                    await window.ethereum.request({ method: "eth_requestAccounts" })
-                    const _web3 = new Web3(window.ethereum)
-                    setWeb3(_web3)
-                    const _contract = orderContract(_web3)
-                    setContract(_contract)
-                    alert("Wallet Succesfully Connected")
-                } else {
-                    alert("Wallet Already Connected")
-                }
+                await window.ethereum.request({ method: "eth_requestAccounts" })
+                const _web3 = new Web3(window.ethereum)
+                setWeb3(_web3)
+                const _contract = orderContract(_web3)
+                setContract(_contract)
+                alert("Wallet Connected")
             } catch (error) {
                 console.log(error.message)
             }
@@ -78,10 +70,19 @@ const Order = () => {
             return
         }
         setErrorMessages()
-        alert("before sends")
         sendEmails()
-        alert("ordered")
 
+        const accounts = await web3.eth.getAccounts()
+        try {
+            await contract.methods.order(name, lastName, email, address).send({
+                from: accounts[0],
+                value: web3.utils.toWei('0.3', 'ether')
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+        setRemainingHandler()
+        alert("Successfully Ordered")
     }
 
     function sendEmails() {
@@ -201,7 +202,6 @@ const Order = () => {
                                 <span className="errMessage">{emailErrorMessage}</span>
                                 <input id="address" type='text' placeholder='Enter delivery address:' className="field address" onChange={updateAddress}></input>
                                 <span className="errMessage">{addressErrorMessage}</span>
-                                {/* <input type="submit"></input> */}
                             </form>
                             <section className="section">
                                 <button className="button connect" onClick={connectWalletHandler}>Connect Wallet</button>
