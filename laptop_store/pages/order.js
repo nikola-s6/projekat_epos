@@ -96,14 +96,14 @@ const Order = () => {
             address: address
         }
 
-        emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE, templateParams, process.env.NEXT_PUBLIC_KEY)
+        emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE_CUSTOMER, templateParams, process.env.NEXT_PUBLIC_KEY)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text)
             }, function (error) {
                 console.log('FAILED...', error)
             })
 
-        emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE, templateParams, process.env.NEXT_PUBLIC_KEY)
+        emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE_OWNER, templateParams, process.env.NEXT_PUBLIC_KEY)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text)
             }, function (error) {
