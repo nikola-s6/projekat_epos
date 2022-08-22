@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Start = () => {
 
     const [textTag, setTag] = useState(<h1 className={styles.heading}>Welcome to our online store!!!</h1>);
-    const [buttonTag, setButton] = useState(<button className={styles.button1}><Link href="/order">ORDER NOW</Link></button>)
+    const [buttonTag, setButton] = useState(<button className={styles.button1}><a href="/order">ORDER NOW!!!</a></button>)
     const [img, setImg] = useState(<img src="laptop_sa_senkom.svg" className={styles.laptop}></img>)
 
     useEffect(() => {
