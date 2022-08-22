@@ -187,7 +187,7 @@ const Order = () => {
                     <div className="left">
                         <img src="laptop_sa_senkom.svg" className="picture"></img>
                         <div className="texts">
-                            <p className="mainText">Razer Laptop 16'</p>
+                            <p className="mainText">Razer Blade 15</p>
                             <p className="priceText">Price: 0.3 eth</p>
                         </div>
                     </div>
