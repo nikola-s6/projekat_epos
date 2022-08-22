@@ -56,6 +56,8 @@ const Order = () => {
             } catch (error) {
                 console.log(error.message)
             }
+        } else {
+            alert("You must have Metamask plugin installed!")
         }
     }
 
@@ -70,7 +72,6 @@ const Order = () => {
             return
         }
         setErrorMessages()
-        sendEmails()
 
         const accounts = await web3.eth.getAccounts()
         try {
@@ -81,7 +82,9 @@ const Order = () => {
         } catch (error) {
             console.log(error.message)
         }
+
         setRemainingHandler()
+        sendEmails()
         alert("Successfully Ordered")
     }
 
@@ -93,14 +96,14 @@ const Order = () => {
             address: address
         }
 
-        emailjs.send('service_01wit8g', 'template_0make8o', templateParams, process.env.NEXT_PUBLIC_KEY)
+        emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE, templateParams, process.env.NEXT_PUBLIC_KEY)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text)
             }, function (error) {
                 console.log('FAILED...', error)
             })
 
-        emailjs.send('service_01wit8g', 'template_atqrcad', templateParams, process.env.NEXT_PUBLIC_KEY)
+        emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE, templateParams, process.env.NEXT_PUBLIC_KEY)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text)
             }, function (error) {
