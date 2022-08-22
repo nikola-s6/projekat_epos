@@ -46,5 +46,4 @@ contract Projekat{
             _buyer
         ));
     }
-
 }
