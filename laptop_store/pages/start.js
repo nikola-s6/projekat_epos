@@ -1,12 +1,13 @@
 import Head from "next/head"
 import styles from "../styles/Start.module.css"
 import React, { useState, useEffect } from "react"
+import Link from 'next/link'
 
 
 const Start = () => {
 
     const [textTag, setTag] = useState(<h1 className={styles.heading}>Welcome to our online store!!!</h1>);
-    const [buttonTag, setButton] = useState(<button className={styles.button1}><a href="/order">ORDER NOW!!!</a></button>)
+    const [buttonTag, setButton] = useState(<button className={styles.button1}><Link href="/posts/first-post">ORDER NOW</Link></button>)
     const [img, setImg] = useState(<img src="laptop_sa_senkom.svg" className={styles.laptop}></img>)
 
     useEffect(() => {
@@ -61,21 +62,21 @@ const Start = () => {
             <br></br>
             <br></br>
             <div className={styles.frame}>
-                <iframe className={styles.iframe} width="560" height="315" src="https://www.youtube.com/embed/54_Zsng1uFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe className={styles.iframe} width="560" height="315" src="https://www.youtube.com/embed/54_Zsng1uFs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
 
             <div className={styles.section2}>
-                <div className= {styles.images}>
-                    <img src = "levi_laptop.png" className= {styles.laptop_left}></img>
-                    <img src = "desni_laptop.png" className= {styles.laptop_right}></img>
+                <div className={styles.images}>
+                    <img src="levi_laptop.png" className={styles.laptop_left}></img>
+                    <img src="desni_laptop.png" className={styles.laptop_right}></img>
                 </div>
-                <div className= {styles.images}> 
+                <div className={styles.images}>
                     <div className={styles.left_text}>NEW RAZER BLADE 15</div>
-                    <div className={styles.right_text}>BASE MODEL</div>   
+                    <div className={styles.right_text}>BASE MODEL</div>
                     <br></br>
                     <br></br>
                 </div>
-                <div className= {styles.table}>  
+                <div className={styles.table}>
                     <hr className={styles.line}></hr>
 
                     <div className={styles.row}>
@@ -85,7 +86,7 @@ const Start = () => {
                     </div>
 
                     <hr className={styles.line}></hr>
-                    
+
                     <div className={styles.row}>
                         <div className={styles.os}>Processor</div>
                         <div className={styles.left_text_table}>12th Gen Intel® Core™ i9 Processor (14-core)</div>
@@ -140,31 +141,31 @@ const Start = () => {
                         <div className={styles.right_text_table}>Single-zone RGB</div>
                     </div>
 
-                    <hr className={styles.line}></hr>     
-                </div>             
+                    <hr className={styles.line}></hr>
+                </div>
             </div>
 
             <div className={styles.gamer}>
-          
+
                 <div className={styles.overlay}>
                     <div>
-                         <h1 className={styles.intel}>12th Gen Intel® Core™ i9 Processor (14-core)</h1>
+                        <h1 className={styles.intel}>12th Gen Intel® Core™ i9 Processor (14-core)</h1>
                     </div>
                     <div>
-                         <p className={styles.intel_text}>More Cores, More Performance</p>
+                        <p className={styles.intel_text}>More Cores, More Performance</p>
                     </div>
                     <div className={styles.intel_div}>
-                         <p className={styles.intel_text}>Experience cutting-edge power with the newly released Intel® Core™ i7 processor, or upgrade it to a Core i9 for unrivalled performance to take on the most demanding gaming and creative tasks. Intel’s 12th Gen processors bring a revolutionary new design with a performance hybrid architecture that combines performance-cores with efficient-cores, offering users the freedom to chat, browse, stream, edit, record, and play. Integrated Killer® Wi-Fi 6E AX16900 (Gig+) delivers the next generation Wi-Fi technology with packet prioritization for a better gaming experience.</p>
+                        <p className={styles.intel_text}>Experience cutting-edge power with the newly released Intel® Core™ i7 processor, or upgrade it to a Core i9 for unrivalled performance to take on the most demanding gaming and creative tasks. Intel’s 12th Gen processors bring a revolutionary new design with a performance hybrid architecture that combines performance-cores with efficient-cores, offering users the freedom to chat, browse, stream, edit, record, and play. Integrated Killer® Wi-Fi 6E AX16900 (Gig+) delivers the next generation Wi-Fi technology with packet prioritization for a better gaming experience.</p>
                     </div>
-                                   
+
                 </div>
 
             </div>
 
             <div className={styles.button}>
-                 {buttonTag}
+                {buttonTag}
             </div>
-      
+
 
 
         </div>
