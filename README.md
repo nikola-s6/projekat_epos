@@ -1,7 +1,7 @@
 # Opis
 
 Sajt je osmisljen da predstavlja reklamnu stranicu i stranicu za kupovinu novog Razer Blade 15 laptopa.
-Na pocetnoj stranici ([http://localhost:3000/start](http://localhost:3000/start)) se nalaze opšti podaci o laptopu koji prodajemo, njegov dizajn i cena. Početna stranica sadrži i kratak video snimak koji kupca bliže upućuje u sam proizvod. Ispod u tabeli se nalazi i komparacija novog Razer Blade 15 laptopa sa običnim modelom na više nivoa. Na kraju početne stranice se nalazi dugme **Order now** koje kupca sprovodi na stranicu za poručivanje laptopa ([http://localhost:3000/order](http://localhost:3000/order)). Na njoj se nalazi forma čija su sva polja obavezna i moraju se popuniti u skladu sa pravilima, u protivnom se pojavljuju greške. Ispod forme se nalaze dva dugmeta **Connect Wallet** i **Order Now**. Dugme **Order Now** ne možete kliknuti dok ne povežete novčanik tako da prvo to morate uraditi. Prilikom povezivanja novčanika Morate imati instaliranu Metamask ekstenziju na vašem pretraživaču. Nakon povezivanja novčanika možete kliknuti na dugme **Order Now**, tada se proveravaju podaci koje ste uneli prilikom popunjavanja forme i ako neko polje nije dobro popunjeno izbacuje grešku. Nakon ispravnog popnjavanja forme i klikom na dugme **Order Now** poručili ste naš proizvod po ceni od 0.3eth (Napomena: morate da sačekate malo dok se transakcija ne izvrsi tj. dok je neki "miner" ne obradi i verifikuje). Nakon uspesnog narucivanja, na mejl koji ste uneli prilikom popunjavanja forme stici ce potvrda o uspesnoj kupovini. (**Napomena**: ukoliko je kod kloniran sa github-a pogledati odeljak [dodavanje automatskog email servisa](#dodavanja-automatskog-email-servisa))
+Na pocetnoj stranici ([http://localhost:3000/start](http://localhost:3000/start)) se nalaze opšti podaci o laptopu koji prodajemo, njegov dizajn i cena. Početna stranica sadrži i kratak video snimak koji kupca bliže upućuje u sam proizvod. Ispod u tabeli se nalazi i komparacija novog Razer Blade 15 laptopa sa običnim modelom na više nivoa. Na kraju početne stranice se nalazi dugme **Order now** koje kupca sprovodi na stranicu za poručivanje laptopa ([http://localhost:3000/order](http://localhost:3000/order)). Na njoj se nalazi forma čija su sva polja obavezna i moraju se popuniti u skladu sa pravilima, u protivnom se pojavljuju greške. Ispod forme se nalaze dva dugmeta **Connect Wallet** i **Order Now**. Dugme **Order Now** ne možete kliknuti dok ne povežete novčanik tako da prvo to morate uraditi. Prilikom povezivanja novčanika Morate imati instaliranu Metamask ekstenziju na vašem pretraživaču. Nakon povezivanja novčanika možete kliknuti na dugme **Order Now**, tada se proveravaju podaci koje ste uneli prilikom popunjavanja forme i ako neko polje nije dobro popunjeno izbacuje grešku. Nakon ispravnog popnjavanja forme i klikom na dugme **Order Now** poručili ste naš proizvod po ceni od 0.3eth (Napomena: morate da sačekate malo dok se transakcija ne izvrsi tj. dok je neki "miner" ne obradi i verifikuje). Nakon uspesnog narucivanja, na mejl koji ste uneli prilikom popunjavanja forme stici ce potvrda o uspesnoj kupovini. (**Napomena**: ukoliko je kod kloniran sa github-a pogledati odeljak [dodavanje automatskog email servisa](https://github.com/nikola-s6/projekat_epos#dodavanje-automatskog-email-servisa))
 
 # Koriscene tehnologije
 
@@ -47,12 +47,17 @@ Nakon toga iz menija potrebno je otici na **Email Templates** (obelezeno crvenom
 
 ![pocetna stranica](/laptop_store/public/EmailJS.png)
 <sub>slika 1</sub>
+
+
 ![template klijent](/laptop_store/public/templejt_klijent.png)
 <sub>slika 2</sub>
+
+
 ![template prodavac](/laptop_store/public/templejt_prodavac.png)
 <sub>slika 3</sub>
 
-Nakon kreiranja servisa i templejta potrebno je u folderu **laptop_store** napraviti faj po imenu **.env.local** i u njega upisati promenljive kao na slici 4 (neophodne je da promenljive imaju ista imena kao na slici). U polja prekrivena belom pozadinom upisati redom _javni kljuc_, _id servisa_, _id templejta korisnika_ i _id templejta prodavca_. (javni kljuc se moze naci u meniju odlaskom na Account, u tabu API Keys pod imenom Public Key)
+
+Nakon kreiranja servisa i templejta potrebno je u folderu **laptop_store** napraviti faj po imenu **.env.local** i u njega upisati promenljive kao na slici 4 (neophodne je da promenljive imaju ista imena kao na slici). U polja prekrivena belom pozadinom upisati redom _javni kljuc_, _id servisa_, _id templejta korisnika_ i _id templejta prodavca_. (javni kljuc se moze naci u meniju odlaskom na *Account*, u tabu *API Keys* pod imenom *Public Key*)
 
 ![Environment Variables](/laptop_store/public/EnvironmentVariables.png)
 <sub>slika 4</sub>
