@@ -40,7 +40,7 @@ Nakon zavrsetka instalacije iz istog foldera u terminalu pokrenuti komandu `npm 
 ### Dodavanje automatskog email servisa
 
 Ukoliko zelite kompletnu funkionalnost sajta koja podrazumeva i potvrdu korisniku da je uspesno narucio laptop putem emaila kao i potvrdu prodavcu da je laptop narucen sa podacima kupca potrebno je izvrsiti neke izmene.
-Ove izmene je neophodno izvrsiti jer smo delove koda izostavili radi zastite podataka jer sadrze nase sifre, vec se oni nalaze u .env fajlu koji je prisutan samo lokalno kod nas.
+Ove izmene je neophodno izvrsiti jer smo delove koda izostavili radi zastite podataka jer sadrze nase sifre, i oni nalaze u .env fajlu koji je prisutan samo lokalno kod nas.
 
 Na sajtu [EmailJS](https://www.emailjs.com/) je potrebno otvoriti besplatan nalog. Nakon toga iz menija pocetne stranice potrebno otici na **Email Services** (obelezeno zelenom na slici 1) i tamo napraviti novi gmail servis.
 Nakon toga iz menija potrebno je otici na **Email Templates** (obelezeno crvenom na slici 1) i napraviti templejte mejlova za klijente i za prodavca. Primere naslih templejta mozete videti na slikama (slika 2- klijent; slika3 prodavac). (**Napomena**: prilikom pravljenja templejta potrebno je koristiti ista imena promenljivih kao sa slike jer se ti podaci ucitavaju iz postojeceg koda aplikacije)
