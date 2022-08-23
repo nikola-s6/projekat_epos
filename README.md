@@ -1,3 +1,8 @@
+# Opis
+
+Sajt je osmisljen da predstavlja reklamnu stranicu i stranicu za kupovinu novog Razer Blade 15 laptopa.
+Na pocetnoj stranici ([http://localhost:3000/start](http://localhost:3000/start)) se nalaze opšti podaci o laptopu koji prodajemo, njegov dizajn i cena. Početna stranica sadrži i kratak video snimak koji kupca bliže upućuje u sam proizvod. Ispod u tabeli se nalazi i komparacija novog Razer Blade 15 laptopa sa običnim modelom na više nivoa. Na kraju početne stranice se nalazi dugme **Order now** koje kupca sprovodi na stranicu za poručivanje laptopa ([http://localhost:3000/order](http://localhost:3000/order)). Na njoj se nalazi forma čija su sva polja obavezna i moraju se popuniti u skladu sa pravilima, u protivnom se pojavljuju greške. Ispod forme se nalaze dva dugmeta **Connect Wallet** i **Order Now**. Dugme **Order Now** ne možete kliknuti dok ne povežete novčanik tako da prvo to morate uraditi. Prilikom povezivanja novčanika Morate imati instaliranu Metamask ekstenziju na vašem pretraživaču. Nakon povezivanja novčanika možete kliknuti na dugme **Order Now**, tada se proveravaju podaci koje ste uneli prilikom popunjavanja forme i ako neko polje nije dobro popunjeno izbacuje grešku. Nakon ispravnog popnjavanja forme i klikom na dugme **Order Now** poručili ste naš proizvod po ceni od 0.3eth (Napomena: morate da sačekate malo dok se transakcija ne izvrsi tj. dok je neki "miner" ne obradi i verifikuje). Nakon uspesnog narucivanja, na mejl koji ste uneli prilikom popunjavanja forme stici ce potvrda o uspesnoj kupovini. (**Napomena**: ukoliko je kod kloniran sa github-a pogledati odeljak [dodavanje automatskog email servisa](#dodavanja-automatskog-email-servisa))
+
 # Koriscene tehnologije
 
 ## Front-end
@@ -25,7 +30,7 @@ Za integraciju servisa za slanje automatizovanih email-ova koristili smo **Email
 
 # Uputstvo za koriscenje
 
-## Lokalna kopija sajta
+## Lokalna kopija i pokretanje sajta
 
 Nakon kloniranja aplikacije iz github repository-a ([uputstvo za kloniranje](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)) potrebno je otvoriti terminal root foldera (projekat_epos).
 Komandom `cd laptop_store` se prebacujemo u folder u kojem se nalazi Next.js aplikacija.
@@ -40,21 +45,14 @@ Ove izmene je neophodno izvrsiti jer smo delove koda izostavili radi zastite pod
 Na sajtu [EmailJS](https://www.emailjs.com/) je potrebno otvoriti besplatan nalog. Nakon toga iz menija pocetne stranice potrebno otici na **Email Services** (obelezeno zelenom na slici 1) i tamo napraviti novi gmail servis.
 Nakon toga iz menija potrebno je otici na **Email Templates** (obelezeno crvenom na slici 1) i napraviti templejte mejlova za klijente i za prodavca. Primere naslih templejta mozete videti na slikama (slika 2- klijent; slika3 prodavac). (**Napomena**: prilikom pravljenja templejta potrebno je koristiti ista imena promenljivih kao sa slike jer se ti podaci ucitavaju iz postojeceg koda aplikacije)
 
-![pocetna stranica](https://drive.google.com/file/d/1-asL64WJ_xrYeCLNTFFo_2vetzSQ6sSs/view?usp=sharing)
+![pocetna stranica](/laptop_store/public/EmailJS.png)
 <sub>slika 1</sub>
-![template klijent](https://drive.google.com/file/d/1-ZOT9zZhG624_dgXkMWYBj45lzyJwLIV/view?usp=sharing)
+![template klijent](/laptop_store/public/templejt_klijent.png)
 <sub>slika 2</sub>
-![template prodavac](https://drive.google.com/file/d/1-cAN8S-JrD_EJZth3kitzKWdVqkcWlf0/view?usp=sharing)
+![template prodavac](/laptop_store/public/templejt_prodavac.png)
 <sub>slika 3</sub>
 
 Nakon kreiranja servisa i templejta potrebno je u folderu **laptop_store** napraviti faj po imenu **.env.local** i u njega upisati promenljive kao na slici 4 (neophodne je da promenljive imaju ista imena kao na slici). U polja prekrivena belom pozadinom upisati redom _javni kljuc_, _id servisa_, _id templejta korisnika_ i _id templejta prodavca_. (javni kljuc se moze naci u meniju odlaskom na Account, u tabu API Keys pod imenom Public Key)
 
-![Environment Variables](https://drive.google.com/file/d/1-k4ftI5ac4ZAr4y90bG_0bce6so4mPLj/view?usp=sharing)
+![Environment Variables](/laptop_store/public/EnvironmentVariables.png)
 <sub>slika 4</sub>
-
-
-### Kretanje kroz sajt
-
-Prilikom pokretanja sajta na linku [http://localhost:3000/start](http://localhost:3000/start) otvara se početna stranica sajta na kojoj se nalaze opšti podaci o laptopu koji prodajemo, njegov dizajn i cena. Početna stranica sadrži i kratak video snimak koji kupca bliže upućuje u sam proizvod. Ispod u tabeli se nalazi i komparacija novog Razer Blade 15 laptopa sa običnim modelom na više nivoa. Na kraju početne stranice se nalazi dugme **Order now** koje kupca sprovodi na [http://localhost:3000/order](http://localhost:3000/order) stranicu za poručivanje laptopa. Na njoj se nalazi forma čija su sva polja obavezna i moraju se popuniti u skladu sa pravilima, u protivnom se pojavljuju greške. Ispod forme se nalaze dva dugmeta **Connect wallet** i **Order now**. Dugme **Order now** ne možete kliknuti dok ne povežete novčanik tako da prvo to morate uraditi. Prilikom povezivanja novčanika kao što smo gore naveli morate instalirati Metamask ekstenziju na vašem pretraživaču. Nakon povezivanja novčanika možete kliknuti na dugme **Order now**, tada se proveravaju podaci koje ste uneli prilikom popunjavanja forme i ako neko polje nije dobro popunjeno izbacuje grešku. Nakon ispravnog popnjavanja forme i klikom na dugme **Order now** poručili ste naš proizvod po ceni od 0.3et (**Napomena**: morate da sačekate malo dok se transakcija ne obradi to jest dok je neki "miner" ne obradi i doda u blockchain).
-
-
