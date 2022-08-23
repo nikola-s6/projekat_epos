@@ -51,3 +51,10 @@ Nakon kreiranja servisa i templejta potrebno je u folderu **laptop_store** napra
 
 ![Environment Variables](https://drive.google.com/file/d/1-k4ftI5ac4ZAr4y90bG_0bce6so4mPLj/view?usp=sharing)
 <sub>slika 4</sub>
+
+
+### Kretanje kroz sajt
+
+Prilikom pokretanja sajta na linku [http://localhost:3000/start](http://localhost:3000/start) otvara se početna stranica sajta na kojoj se nalaze opšti podaci o laptopu koji prodajemo, njegov dizajn i cena. Početna stranica sadrži i kratak video snimak koji kupca bliže upućuje u sam proizvod. Ispod u tabeli se nalazi i komparacija novog Razer Blade 15 laptopa sa običnim modelom na više nivoa. Na kraju početne stranice se nalazi dugme **Order now** koje kupca sprovodi na [http://localhost:3000/order](http://localhost:3000/order) stranicu za poručivanje laptopa. Na njoj se nalazi forma čija su sva polja obavezna i moraju se popuniti u skladu sa pravilima, u protivnom se pojavljuju greške. Ispod forme se nalaze dva dugmeta **Connect wallet** i **Order now**. Dugme **Order now** ne možete kliknuti dok ne povežete novčanik tako da prvo to morate uraditi. Prilikom povezivanja novčanika kao što smo gore naveli morate instalirati Metamask ekstenziju na vašem pretraživaču. Nakon povezivanja novčanika možete kliknuti na dugme **Order now**, tada se proveravaju podaci koje ste uneli prilikom popunjavanja forme i ako neko polje nije dobro popunjeno izbacuje grešku. Nakon ispravnog popnjavanja forme i klikom na dugme **Order now** poručili ste naš proizvod po ceni od 0.3et (**Napomena**: morate da sačekate malo dok se transakcija ne obradi to jest dok je neki "miner" ne obradi i doda u blockchain).
+
+
