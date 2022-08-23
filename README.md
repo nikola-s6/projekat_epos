@@ -40,14 +40,14 @@ Ove izmene je neophodno izvrsiti jer smo delove koda izostavili radi zastite pod
 Na sajtu [EmailJS](https://www.emailjs.com/) je potrebno otvoriti besplatan nalog. Nakon toga iz menija pocetne stranice potrebno otici na **Email Services** (obelezeno zelenom na slici 1) i tamo napraviti novi gmail servis.
 Nakon toga iz menija potrebno je otici na **Email Templates** (obelezeno crvenom na slici 1) i napraviti templejte mejlova za klijente i za prodavca. Primere naslih templejta mozete videti na slikama (slika 2- klijent; slika3 prodavac). (**Napomena**: prilikom pravljenja templejta potrebno je koristiti ista imena promenljivih kao sa slike jer se ti podaci ucitavaju iz postojeceg koda aplikacije)
 
-[pocetna stranica](https://drive.google.com/file/d/1-asL64WJ_xrYeCLNTFFo_2vetzSQ6sSs/view?usp=sharing)
+![pocetna stranica](https://drive.google.com/file/d/1-asL64WJ_xrYeCLNTFFo_2vetzSQ6sSs/view?usp=sharing)
 <sub>slika 1</sub>
-[template klijent](https://drive.google.com/file/d/1-ZOT9zZhG624_dgXkMWYBj45lzyJwLIV/view?usp=sharing)
+![template klijent](https://drive.google.com/file/d/1-ZOT9zZhG624_dgXkMWYBj45lzyJwLIV/view?usp=sharing)
 <sub>slika 2</sub>
-[template prodavac](https://drive.google.com/file/d/1-cAN8S-JrD_EJZth3kitzKWdVqkcWlf0/view?usp=sharing)
+![template prodavac](https://drive.google.com/file/d/1-cAN8S-JrD_EJZth3kitzKWdVqkcWlf0/view?usp=sharing)
 <sub>slika 3</sub>
 
 Nakon kreiranja servisa i templejta potrebno je u folderu **laptop_store** napraviti faj po imenu **.env.local** i u njega upisati promenljive kao na slici 4 (neophodne je da promenljive imaju ista imena kao na slici). U polja prekrivena belom pozadinom upisati redom _javni kljuc_, _id servisa_, _id templejta korisnika_ i _id templejta prodavca_. (javni kljuc se moze naci u meniju odlaskom na Account, u tabu API Keys pod imenom Public Key)
 
-[Environment Variables](https://drive.google.com/file/d/1-k4ftI5ac4ZAr4y90bG_0bce6so4mPLj/view?usp=sharing)
+![Environment Variables](https://drive.google.com/file/d/1-k4ftI5ac4ZAr4y90bG_0bce6so4mPLj/view?usp=sharing)
 <sub>slika 4</sub>
