@@ -32,6 +32,7 @@ Za integraciju servisa za slanje automatizovanih email-ova koristili smo **Email
 
 ## Lokalna kopija i pokretanje sajta
 
+Potrebno je da racunar ima instaliran Node.js i npm (node package manager), koji dolazi zajedno sa instalacijom Node.js-a.
 Nakon kloniranja aplikacije iz github repository-a ([uputstvo za kloniranje](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)) potrebno je otvoriti terminal root foldera (projekat_epos).
 Komandom `cd laptop_store` se prebacujemo u folder u kojem se nalazi Next.js aplikacija.
 Kada prvi put pokrecemo aplikaciju potrebno je izvrsiti komandu `npm install` koja ce instalirati sve potrebne pakete i dependancy-e koji su potrebni za nesmetan rad sajta. (instalacija svih paketa moze potrajati par minuta)
